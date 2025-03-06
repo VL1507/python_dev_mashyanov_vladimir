@@ -28,10 +28,3 @@ class Post(BaseDB1, IntegerIDMixin):
     text: Mapped[str] = mapped_column(VARCHAR())
     author_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     blog_id: Mapped[int] = mapped_column(ForeignKey("blog.id"))
-
-
-# async def create_db_and_tables() -> None:
-#     # async with engin.begin() as conn:
-#     async with engin.connect() as conn:
-#         # await conn.run_sync(Base.metadata.drop_all)
-#         await conn.run_sync(Base.metadata.create_all)

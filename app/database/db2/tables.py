@@ -26,10 +26,3 @@ class SpaceType(BaseDB2, IntegerIDMixin):
 class EventType(BaseDB2, IntegerIDMixin):
     __tablename__ = "event_type"
     name: Mapped[str] = mapped_column(VARCHAR(20))
-
-
-# async def create_db_and_tables() -> None:
-#     # async with engin.begin() as conn:
-#     async with engin.connect() as conn:
-#         # await conn.run_sync(Base.metadata.drop_all)
-#         await conn.run_sync(Base.metadata.create_all)
