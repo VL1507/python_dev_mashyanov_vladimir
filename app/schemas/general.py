@@ -7,3 +7,6 @@ class GeneralModel(BaseModel):
     number_of_entries_to_the_site: int
     number_of_exits_from_the_site: int
     number_of_actions_inside_the_blog: int
+
+class GeneralsModel(BaseModel):
+    generals: list[GeneralModel]
