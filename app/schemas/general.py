@@ -1,12 +1,14 @@
-from pydantic import BaseModel
 import datetime
+
+from pydantic import BaseModel
 
 
 class GeneralModel(BaseModel):
     date: datetime.datetime
-    number_of_entries_to_the_site: int
-    number_of_exits_from_the_site: int
-    number_of_actions_inside_the_blog: int
+    count_login: int
+    count_logout: int
+    count_actions: int
+
 
 class GeneralsModel(BaseModel):
     generals: list[GeneralModel]

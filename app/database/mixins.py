@@ -1,7 +1,7 @@
-import datetime
 import uuid
+from datetime import datetime, timezone
 
-from sqlalchemy.orm import mapped_column, Mapped
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class BaseMixin:
@@ -10,7 +10,6 @@ class BaseMixin:
 
 class IntegerIDMixin(BaseMixin):
     id: Mapped[int] = mapped_column(
-        # Identity(),
         primary_key=True,
         sort_order=-100,
     )
@@ -24,19 +23,19 @@ class UUID4Mixin(BaseMixin):
     )
 
 
-def datetime_utc() -> datetime.datetime:
+def datetime_utc() -> datetime:
     return (
-        datetime.datetime.now(datetime.timezone.utc)
+        datetime.now(timezone.utc)
         # .replace(tzinfo=None)
     )
 
 
 class TimestampMixin(BaseMixin):
-    created_at: Mapped[datetime.datetime] = mapped_column(
+    created_at: Mapped[datetime] = mapped_column(
         default=datetime_utc,
         sort_order=100,
     )
-    updated_at: Mapped[datetime.datetime] = mapped_column(
+    updated_at: Mapped[datetime] = mapped_column(
         default=datetime_utc,
         onupdate=datetime_utc,
         sort_order=101,

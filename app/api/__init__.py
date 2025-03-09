@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from . import comments, general
 
 api_router = APIRouter()
