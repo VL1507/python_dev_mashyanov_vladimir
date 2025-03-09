@@ -6,6 +6,7 @@
 
 ```bash
 git clone https://github.com/VL1507/python_dev_mashyanov_vladimir.git
+cd python_dev_mashyanov_vladimir
 pip install uv
 uv sync
 ```
