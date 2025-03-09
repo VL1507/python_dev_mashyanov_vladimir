@@ -1,32 +1,38 @@
-import datetime
-from typing import Sequence, Tuple
-
-from fastapi.exceptions import HTTPException
-from sqlalchemy import Row, and_, or_, select
-from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import func, select
+from sqlalchemy.orm import aliased
 
 from app.database.base import get_session
-from app.database.db1.tables import Blog, Post, Users
-from app.database.db2.tables import EventType, Logs, SpaceType
+from app.database.db1.tables import Comment, Post, Users
 from app.schemas.comments import CommentModel
+from app.utils.custom_logger import setup_logger
+
+logger = setup_logger(__name__)
 
 
 class CommentsService:
-    # def __init__(self) -> None:
-    #     self._get_session = get_session
-
     async def get_comments_dataset(self, login: str) -> list[CommentModel]:
-        # session = await self._get_session()
         session = await get_session()
-        try:
-            ...
-        except Exception:
-            raise HTTPException(
-                status_code=404, detail=f"user with login {login} not found"
+        author = aliased(Users)
+        data = (
+            await session.execute(
+                select(Users.login, Post.header, author.login, func.count(Comment.id))
+                .join(Comment, Comment.user_id == Users.id)
+                .join(Post, Post.id == Comment.post_id)
+                .join(author, author.id == Post.author_id)
+                .where(Users.login == login)
+                .group_by(Post.header, Users.login, Users.login)
             )
-        finally:
-            await session.close()
+        ).all()
+        await session.close()
 
-        comments_dataset: list[CommentModel] = []
+        comments_dataset: list[CommentModel] = [
+            CommentModel(
+                user_login=user_login,
+                header=header,
+                author_login=author_login,
+                number_of_comments=number_of_comments,
+            )
+            for user_login, header, author_login, number_of_comments in data
+        ]
 
         return comments_dataset
