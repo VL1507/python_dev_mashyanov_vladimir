@@ -12,8 +12,8 @@ from app.schemas.general import GeneralModel
 
 
 class GeneralService:
-    def __init__(self) -> None:
-        self._get_session = get_session
+    # def __init__(self) -> None:
+    # self._get_session = get_session
 
     def _eq_dt(self, dt1: datetime.datetime, dt2: datetime.datetime) -> bool:
         return dt1.year == dt2.year and dt1.month == dt2.month and dt1.day == dt2.day
@@ -48,7 +48,8 @@ class GeneralService:
         return user_logs
 
     async def get_general_dataset(self, login: str) -> list[GeneralModel]:
-        session = await self._get_session()
+        # session = await self._get_session()
+        session = await get_session()
         try:
             user_logs = await self._get_user_logs(session=session, login=login)
         except Exception:
