@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir uv
 
 COPY uv.lock pyproject.toml /backend/
 
-RUN uv install 
+RUN uv sync
 
 COPY ./app/ /backend/app/
 
