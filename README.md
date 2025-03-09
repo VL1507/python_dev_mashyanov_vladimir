@@ -1,6 +1,6 @@
 # Установка
 
-```
+``` bash
 git clone https://github.com/VL1507/python_dev_mashyanov_vladimir.git
 pip install uv
 uv sync
@@ -16,4 +16,4 @@ uv sync
 
 # Изменения (нестыковки/несоответствия)
 
-1. ### Нет связи между комментариаем и постом
+### Нет связи между комментариаем и постом
