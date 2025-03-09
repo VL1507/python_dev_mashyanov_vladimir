@@ -11,6 +11,8 @@ pip install uv
 uv sync
 ```
 
+Создайте .env файл. Используйте .env.example как шаблон.
+
 ## Запуск
 
 ```bash
@@ -35,15 +37,15 @@ make runapp
 
 В db1 добавил таблицу comments c полями
 
-- id: int
-- user_id: int - внешние ключи с users.id
-- post_id: int - внешние ключи с post.id
-- text: varchar
-- created_at: datetime
-- updated_at: datetime - пусть можно редактировать комментарии
+-   id: int
+-   user_id: int - внешние ключи с users.id
+-   post_id: int - внешние ключи с post.id
+-   text: varchar
+-   created_at: datetime
+-   updated_at: datetime - пусть можно редактировать комментарии
 
 ## Другие комментарии
 
-- хотел использовать репозитории, но не придумал как
-- UnitOfWork не используется, т.к. нет репозиториев
-- тестов в папке tests нет
+-   хотел использовать репозитории, но не придумал как
+-   UnitOfWork не используется, т.к. нет репозиториев
+-   тестов в папке tests нет
