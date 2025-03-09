@@ -1,7 +1,7 @@
 from sqlalchemy import VARCHAR, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 
-from app.database.mixins import IntegerIDMixin
+from app.database.mixins import IntegerIDMixin, TimestampMixin
 
 from .base import BaseDB1
 
@@ -28,3 +28,11 @@ class Post(BaseDB1, IntegerIDMixin):
     text: Mapped[str] = mapped_column(VARCHAR())
     author_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     blog_id: Mapped[int] = mapped_column(ForeignKey("blog.id"))
+
+
+class Comment(BaseDB1, IntegerIDMixin, TimestampMixin):
+    __tablename__ = "comments"
+
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    post_id: Mapped[int] = mapped_column(ForeignKey("post.id"))
+    text: Mapped[str] = mapped_column(VARCHAR())
