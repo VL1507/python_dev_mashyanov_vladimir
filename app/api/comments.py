@@ -2,9 +2,7 @@ from fastapi import APIRouter
 
 from app.schemas.comments import CommentModel
 from app.services.comments_service import CommentsService
-from app.utils.custom_logger import setup_logger
 
-logger = setup_logger(__name__)
 router = APIRouter()
 
 
