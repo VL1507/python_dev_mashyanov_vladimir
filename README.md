@@ -1,4 +1,4 @@
-# Тестовое задание на практику в FarPost на Python-разработчика
+# Тестовое задание на практику в FarPost_ на Python-разработчика
 
 [Тестовое задание](terms_of_reference/description.txt)
 
