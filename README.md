@@ -56,7 +56,7 @@ python_dev_mashyanov_vladimir
 │   ├── <a href="app/services">services</a> ─ сервисы
 │   └── <a href="app/utils">utils</a>
 └── <a href="tests">tests</a> ─ Тесты
-    └── <a href="tests/unit">utils</a>
+    └── <a href="tests/unit">unit</a>
 </pre>
 
 ## Другие комментарии
