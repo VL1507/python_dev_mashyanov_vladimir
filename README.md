@@ -44,6 +44,21 @@ make runapp
 - created_at: datetime
 - updated_at: datetime - пусть можно редактировать комментарии
 
+## Структура
+
+<pre>
+python_dev_mashyanov_vladimir
+├── <a href="app">app</a> ─ Главная папка проекта
+│   ├── <a href="app/api">api</a> ─ здесь находятся эндпоинты
+│   ├── <a href="app/database">database</a> ─ для работы с БД
+│   ├── <a href="app/migration">migration</a> ─ миграции alembic
+│   ├── <a href="app/schemas">schemas</a> ─ схемы получаемых и отдаваемых данных по api
+│   ├── <a href="app/services">services</a> ─ сервисы
+│   └── <a href="app/utils">utils</a>
+└── <a href="tests">tests</a> ─ Тесты
+    └── <a href="tests/unit">utils</a>
+</pre>
+
 ## Другие комментарии
 
 - хотел использовать репозитории, но не придумал как
