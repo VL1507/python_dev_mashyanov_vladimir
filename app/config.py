@@ -1,8 +1,10 @@
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class BaseSettingsWithConfigDict(BaseSettings):
-    model_config = SettingsConfigDict(env_file="./app/.env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=Path("./app/.env"), extra="ignore")
 
 
 class CORSSettings(BaseSettingsWithConfigDict):
