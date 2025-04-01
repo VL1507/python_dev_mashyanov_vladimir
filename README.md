@@ -46,16 +46,18 @@ make runapp
 
 ## Структура
 
-python_dev_mashyanov_vladimir
-├── [app](./app/) ─ Главная папка проекта
-│ ├── [api](./app/api/) ─ здесь находятся эндпоинты
-│ ├── [database](./app/database) ─ для работы с БД
-│ ├── [migration](./app/migration) ─ миграции alembic
-│ ├── [schemas](./app/schemas) ─ схемы получаемых и отдаваемых данных по api
-│ ├── [services](./app/services) ─ сервисы
-│ └── [utils](./app/utils)
-└── [tests](./tests/) ─ Тесты
-  └── [unit](./tests/unit/)
+```
+.
+├── app ─ Главная папка проекта
+│ ├── api ─ здесь находятся эндпоинты
+│ ├── database ─ для работы с БД
+│ ├── migration ─ миграции alembic
+│ ├── schemas ─ схемы получаемых и отдаваемых данных по api
+│ ├── services ─ сервисы
+│ └── utils
+└── tests ─ Тесты
+  └── unit
+```
 
 ## Другие комментарии
 
